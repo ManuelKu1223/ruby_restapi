@@ -1,0 +1,37 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+-->
+  <div class="field">
+    <label for="post_picture">Take a pic</label>
+    <input type="file" name="post[picture]" id="post_picture" accept="image/*" capture="user">
+  </div>
+<!--
+  <div class="field">
+    <%= form.label :uploads %>
+    <%= form.file_field :uploads, multiple: true %>
+  </div>
+-->
+  <div class="actions">
+    <input type="submit" name="commit" value="Am I wearing a hat?" data-disable-with="Am I wearing a hat?">
+  </div>
+<% end %>

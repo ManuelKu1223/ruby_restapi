@@ -1,0 +1,36 @@
+<!--
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+-->
+
+<p>
+  <%= image_tag(@post.picture.variant(auto_orient: true).processed.service_url, width: 500) if @post.picture.attached? %> 
+</p>
+<!--
+<p>
+  <strong>Uploads:</strong> <br/>
+  <% if @post.uploads.attached? %>
+    <% @post.uploads.each do |upload| %>
+      <%= link_to upload.filename, upload, target: '_blank' %> <br/>
+    <% end %>
+  <% else %>
+    <p>no uploads</p>
+  <% end %>
+</p>
+-->
+<h3><%= @response.html_safe %></h3>
+<% if @debug.present? %>
+<p><%= debug @debug %></p>
+<% end %>
+
+<%#= link_to 'Edit', edit_post_path(@post) %>
+<%= link_to 'Back', posts_path %>
